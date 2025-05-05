@@ -7,7 +7,6 @@ import 'package:micple_app/features/bloc/signin/sign_event.dart';
 import 'package:micple_app/features/bloc/signin/signin_bloc.dart';
 import 'package:micple_app/features/bloc/signin/signin_state.dart';
 import 'package:micple_app/features/common/common_widgets.dart';
-import 'package:micple_app/features/screens/signup/signup_screen.dart';
 
 class Header extends StatelessWidget {
   const Header({super.key});
@@ -24,10 +23,13 @@ class Header extends StatelessWidget {
               alignment: Alignment.centerLeft,
               child:
                   state.isSigninButtonVisible
-                      ? CommonWidgets.primaryButton(onTap: () {
-                    debugPrint('Button tapped');
-                        context.read<SigninBloc>().add(ToggleSigninButton());
-                  })
+                      ? CommonWidgets.primaryButton(
+                        onTap: () {
+                          debugPrint('Button tapped');
+                          context.read<SigninBloc>().add(ToggleSigninButton());
+                        },
+                        title: "Sign in",
+                      )
                       : Column(
                         children: [
                           SizedBox(
@@ -38,8 +40,11 @@ class Header extends StatelessWidget {
                             ),
                           ),
                           GestureDetector(
-                            onTap: (){
-                              Navigator.pushNamed(context, RouteNames.signupScreen);
+                            onTap: () {
+                              Navigator.pushNamed(
+                                context,
+                                RouteNames.signupScreen,
+                              );
                             },
                             child: Text(
                               "Create an account",

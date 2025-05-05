@@ -41,7 +41,6 @@ class SignupScreen extends StatelessWidget {
                     ResidenceInfoInputField(),
                     SizedBox(height: 10,),
                     UserInfoInputField()
-          
                   ],
                 ),
               ),

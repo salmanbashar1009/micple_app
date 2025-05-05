@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:micple_app/core/constant/app_colors.dart';
 
 class CommonWidgets {
-  static Widget primaryButton({required VoidCallback onTap}) {
+  static Widget primaryButton({required VoidCallback onTap, required String title, double? height}) {
     return SizedBox(
-      height: 30,
+      height: height ?? 30,
       child: ElevatedButton(
         onPressed: onTap,
         style: ElevatedButton.styleFrom(
@@ -13,7 +13,7 @@ class CommonWidgets {
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
         ),
         child: Text(
-          "Sign in",
+          title,
           style: TextStyle(
             fontWeight: FontWeight.w600,
             color: AppColors.onPrimaryColor,

@@ -1,16 +1,13 @@
 import 'package:equatable/equatable.dart';
 
-abstract class SignupEvent extends Equatable{
+abstract class SignupEvent extends Equatable {
   const SignupEvent();
 
   @override
-  // TODO: implement props
-  List<Object?> get props => [
-
-  ];
+  List<Object?> get props => [];
 }
 
-class TextFieldFocusedEvent extends SignupEvent{
+class TextFieldFocusedEvent extends SignupEvent {
   final String fieldKey;
   final bool isFocused;
 
@@ -31,17 +28,18 @@ class DropdownValueChangedEvent extends SignupEvent {
   final String fieldKey;
   final String selectedValue;
 
-  const DropdownValueChangedEvent({required this.fieldKey, required this.selectedValue});
+  const DropdownValueChangedEvent(
+      {required this.fieldKey, required this.selectedValue});
 
   @override
   List<Object?> get props => [fieldKey, selectedValue];
 }
 
 class OnHoverEvent extends SignupEvent {
-  final String gender;
+  final String? value;
 
-  const OnHoverEvent({required this.gender});
+  const OnHoverEvent({required this.value});
 
   @override
-  List<Object?> get props => [gender];
+  List<Object?> get props => [value];
 }

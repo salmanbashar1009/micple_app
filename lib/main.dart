@@ -4,6 +4,7 @@ import 'package:micple_app/features/bloc/signin/signin_bloc.dart';
 import 'package:micple_app/features/bloc/signup/signup_bloc.dart';
 
 import 'app.dart';
+import 'features/bloc/signup/text_form_bloc/text_form_bloc.dart';
 
 void main() {
   runApp(
@@ -11,6 +12,7 @@ void main() {
         providers: [
           BlocProvider<SigninBloc>(create: (_)=> SigninBloc()),
           BlocProvider<SignupBloc>(create: (_)=> SignupBloc()),
+          BlocProvider<TextFormBloc>(create: (_)=> TextFormBloc()),
         ],
         child: const MyApp()
     )

@@ -13,12 +13,26 @@ class DashedBorderTextFormField extends StatefulWidget {
   final bool isDotted;
   final Widget? suffixIcon;
   final String hintText;
-  final String fieldKey;
+  final String? fieldKey;
+  final bool? readOnly;
+  final TextEditingController? controller;
+  final  Function(String)? onChanged;
+  final bool? enabled;
 
-  const DashedBorderTextFormField({super.key, this.isDotted = false, required this.hintText, this.suffixIcon, required this.fieldKey});
+  const DashedBorderTextFormField({
+    super.key,
+    this.isDotted = false,
+    required this.hintText,
+    this.suffixIcon,
+    this.fieldKey,
+    this.readOnly,
+    this.controller,
+    this.onChanged, this.enabled
+  });
 
   @override
-  State<DashedBorderTextFormField> createState() => _DashedBorderTextFormFieldState();
+  State<DashedBorderTextFormField> createState() =>
+      _DashedBorderTextFormFieldState();
 }
 
 class _DashedBorderTextFormFieldState extends State<DashedBorderTextFormField> {
@@ -30,7 +44,12 @@ class _DashedBorderTextFormFieldState extends State<DashedBorderTextFormField> {
     _focusNode = FocusNode();
     _focusNode.addListener(() {
       final bloc = context.read<SignupBloc>();
-      bloc.add(TextFieldFocusedEvent(fieldKey: widget.fieldKey, isFocused: _focusNode.hasFocus));
+      bloc.add(
+        TextFieldFocusedEvent(
+          fieldKey: widget.fieldKey ?? ' ',
+          isFocused: _focusNode.hasFocus,
+        ),
+      );
     });
   }
 
@@ -42,19 +61,23 @@ class _DashedBorderTextFormFieldState extends State<DashedBorderTextFormField> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<SignupBloc,SignupState>(
-      builder: (context,state) {
-
+    return BlocBuilder<SignupBloc, SignupState>(
+      builder: (context, state) {
         final isFocused = state.focusMap[widget.fieldKey] ?? false;
 
         return Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(5.0),
-          ),
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(5.0)),
           child: CustomPaint(
-            painter: DashedBorderPainter( isDotted: widget.isDotted, color: isFocused ? Colors.green : AppColors.borderColor),
+            painter: DashedBorderPainter(
+              isDotted: widget.isDotted,
+              color: isFocused ? Colors.green : AppColors.borderColor,
+            ),
             child: TextFormField(
+              controller: widget.controller,
               focusNode: _focusNode,
+              readOnly: widget.readOnly ?? false,
+              onChanged: widget.onChanged,
+              enabled: widget.enabled,
               decoration: InputDecoration(
                 filled: isFocused ? false : true,
                 fillColor: AppColors.borderColor.withOpacity(0.1),
@@ -65,15 +88,18 @@ class _DashedBorderTextFormFieldState extends State<DashedBorderTextFormField> {
                   borderRadius: BorderRadius.circular(5.0),
                   borderSide: BorderSide.none, // Remove default border
                 ),
-                enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.transparent)),
-                focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.transparent)),
-                suffixIcon: widget.suffixIcon
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.transparent),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.transparent),
+                ),
+                suffixIcon: widget.suffixIcon,
               ),
             ),
           ),
         );
-      }
+      },
     );
   }
 }
-
