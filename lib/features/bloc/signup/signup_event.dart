@@ -43,3 +43,5 @@ class OnHoverEvent extends SignupEvent {
   @override
   List<Object?> get props => [value];
 }
+
+class TermsAcceptedEvent extends SignupEvent {}

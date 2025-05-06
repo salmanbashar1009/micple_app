@@ -1,7 +1,6 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:micple_app/core/constant/app_colors.dart';
 
 class DashedBorderPainter extends CustomPainter {
   final bool isDotted;

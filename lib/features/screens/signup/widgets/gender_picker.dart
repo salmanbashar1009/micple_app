@@ -41,7 +41,7 @@ class GenderPicker extends StatelessWidget {
           hint: Text("Gender", style: bodyMedium?.copyWith(color: Colors.black45)),
           dropdownColor: AppColors.white,
           onChanged: onChanged,
-          enableFeedback: enabled,
+          // enableFeedback: enabled,
           selectedItemBuilder: (context) => genders.map((gender) => Text(gender, style: bodyMedium))
               .toList(),
           items: genders.map((gender) {

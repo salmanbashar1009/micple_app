@@ -10,7 +10,9 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
       focusMap: {},
       hoverMap: {},
       dropdownValues: {},
-      hoveredValue: null)) {
+      hoveredValue: null,
+    isTermsAccepted: false
+  )) {
     /// Handles text field focus changes (onFocus)
     on<TextFieldFocusedEvent>((event, emit) {
       final updatedFocus = Map<String, bool>.from(state.focusMap)
@@ -42,22 +44,13 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
       debugPrint('Hover event received: ${event.value}');
       emit(state.copyWith(hoveredValue: event.value));
     });
+
+    on<TermsAcceptedEvent>((event, emit) {
+      debugPrint("\n\nTerms accepted event received\n");
+      emit(state.copyWith(isTermsAccepted: !state.isTermsAccepted));
+    });
+
   }
-
-  // void _onUpdateField(UpdateFieldEvent event, Emitter<FormState> emit) {
-  //   final currentFields = Map<String, dynamic>.from(state.fields);
-  //   currentFields[event.field] = event.value;
-  //   emit(FormState(currentFields));
-  // }
-
-  bool canEditField(String currentField, String nextField) {
-    return state.focusMap[currentField] == null || state.focusMap[nextField] == '';
-  }
-
-  // fun canEditField(currentField: String, nextField: String): Boolean {
-  // return state.focusMap[currentField] == null || state.focusMap[nextField] == false
-  // }
-
   /// Optional utility method for checking if a field is currently focused
   bool isFocused(String key) => state.focusMap[key] ?? false;
 }

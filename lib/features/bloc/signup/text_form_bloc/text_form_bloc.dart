@@ -16,11 +16,10 @@ class TextFormBloc extends Bloc<TextFormEvent, TextFormState> {
     'city': null,
     'state': null,
     'zipCode': null,
-    'username': null,
     'nationalId': null,
+    'phoneNumber': null,
     'password': null,
     'confirmPassword': null,
-    'termsAccepted': false,
   })) {
     on<UpdateFieldEvent>(_onUpdateField);
   }

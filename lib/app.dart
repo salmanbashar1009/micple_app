@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:micple_app/core/route_config/app_routes.dart';
 import 'package:micple_app/core/route_config/route_name.dart';
 import 'package:micple_app/core/theme/app_theme.dart';
-import 'package:micple_app/features/screens/signin/signin_screen.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

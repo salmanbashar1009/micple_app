@@ -2,21 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:micple_app/core/constant/app_colors.dart';
 
 class CommonWidgets {
-  static Widget primaryButton({required VoidCallback onTap, required String title, double? height}) {
+  static Widget primaryButton({required VoidCallback onTap, required String title, double? height,Color? buttonColor, Color? textColor}) {
     return SizedBox(
       height: height ?? 30,
       child: ElevatedButton(
         onPressed: onTap,
         style: ElevatedButton.styleFrom(
+          splashFactory: NoSplash.splashFactory,
+          elevation: 0,
+          surfaceTintColor: Colors.transparent,
           padding: EdgeInsets.symmetric(horizontal: 20),
-          backgroundColor: AppColors.primaryColor,
+          backgroundColor: buttonColor ?? AppColors.primaryColor,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+          overlayColor: Colors.transparent,
+          shadowColor: Colors.transparent
         ),
         child: Text(
           title,
           style: TextStyle(
             fontWeight: FontWeight.w600,
-            color: AppColors.onPrimaryColor,
+            color: textColor ?? (buttonColor == AppColors.primaryColor ? AppColors.onPrimaryColor : Colors.grey),
             fontSize: 14,
           ),
         ),
