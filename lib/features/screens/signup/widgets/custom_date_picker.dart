@@ -32,10 +32,9 @@ class CustomDatePicker extends StatelessWidget {
   Widget build(BuildContext context) {
     return Theme(
       data: Theme.of(context).copyWith(hoverColor: AppColors.primaryColor),
-      child: Container(
-        // height: 56,
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(5.0)),
-        child: CustomPaint(
+      child: SizedBox(
+        height: 40,
+          child: CustomPaint(
           painter: DashedBorderPainter(
             isDotted: true,
             color: AppColors.borderColor,

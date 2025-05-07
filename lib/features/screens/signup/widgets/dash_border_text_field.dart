@@ -72,29 +72,32 @@ class _DashedBorderTextFormFieldState extends State<DashedBorderTextFormField> {
               isDotted: widget.isDotted,
               color: isFocused ? Colors.green : AppColors.borderColor,
             ),
-            child: TextFormField(
-              controller: widget.controller,
-              focusNode: _focusNode,
-              readOnly: widget.readOnly ?? false,
-              onChanged: widget.onChanged,
-              enabled: widget.enabled,
-              decoration: InputDecoration(
-                filled: isFocused ? false : true,
-                fillColor: AppColors.borderColor.withOpacity(0.1),
-                hoverColor: Colors.transparent,
-                hintText: widget.hintText,
-                contentPadding: const EdgeInsets.all(12.0),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(5.0),
-                  borderSide: BorderSide.none, // Remove default border
+            child: SizedBox(
+              height: 40,
+              child: TextFormField(
+                controller: widget.controller,
+                focusNode: _focusNode,
+                readOnly: widget.readOnly ?? false,
+                onChanged: widget.onChanged,
+                enabled: widget.enabled,
+                decoration: InputDecoration(
+                  filled: isFocused ? false : true,
+                  fillColor: AppColors.borderColor.withOpacity(0.1),
+                  hoverColor: Colors.transparent,
+                  hintText: widget.hintText,
+                  contentPadding: const EdgeInsets.all(12.0),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5.0),
+                    borderSide: BorderSide.none, // Remove default border
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.transparent),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.transparent),
+                  ),
+                  suffixIcon: widget.suffixIcon,
                 ),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.transparent),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.transparent),
-                ),
-                suffixIcon: widget.suffixIcon,
               ),
             ),
           ),

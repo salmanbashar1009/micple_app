@@ -34,8 +34,10 @@ class SignupScreen extends StatelessWidget {
           child: Padding(
             padding: AppPadding.paddingAll,
             child: Center(
-              child: SizedBox(
-                width: 980,
+              child: ConstrainedBox(
+                constraints: BoxConstraints(
+                  maxWidth: 980,
+                ),
                 child: Column(
                   spacing: 10,
                   crossAxisAlignment: CrossAxisAlignment.start,

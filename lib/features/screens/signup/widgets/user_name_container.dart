@@ -14,7 +14,7 @@ class UsernameContainer extends StatelessWidget {
     final bodyMedium = Theme.of(context).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w800,color: AppColors.black);
 
     return Container(
-      height: 50,
+      height: 40,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(5.0),
       ),

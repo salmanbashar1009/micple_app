@@ -18,9 +18,9 @@ class HomeScreenFooter extends StatelessWidget {
       color: Color(0xFFe4e4e4),
       child: Row(
         children: [
-          Text("Dhaka,Bangladesh", style: bodyMedium),
+          Expanded(child: Text("Dhaka,Bangladesh", style: bodyMedium)),
           Spacer(),
-          Text("©Micple™", style: bodyMedium),
+          Expanded(child: Text("©Micple™", style: bodyMedium)),
           Spacer(),
           ShowPopupMenu()
         ],
