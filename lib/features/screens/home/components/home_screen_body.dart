@@ -24,12 +24,11 @@ class HomeScreenBody extends StatelessWidget {
             },
           ),
           HomeSearchBar(),
+          // Wrap HomeTabBar to ensure it can handle horizontal scrolling
           HomeTabBar(),
-          HomeBodyContent()
+          HomeBodyContent(),
         ],
       ),
     );
   }
 }
-
-

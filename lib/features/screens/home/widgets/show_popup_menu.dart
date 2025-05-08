@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:micple_app/core/constant/app_colors.dart';
 import 'package:micple_app/core/constant/app_padding.dart';
+import 'package:micple_app/core/route_config/route_name.dart';
 import '../../../bloc/home/home_screen_footer/home_screen_footer_bloc.dart';
 import '../../../bloc/home/home_screen_footer/home_screen_footer_event.dart';
 import '../../../bloc/home/home_screen_footer/home_screen_footer_state.dart';
@@ -20,20 +21,48 @@ class ShowPopupMenu extends StatelessWidget {
         return Wrap(
           spacing: 5,
           children: [
-            GestureDetector(child: Text(state.selectedItem, style: bodyMedium)),
+            GestureDetector(
+                onTap: (){
+                  if(state.selectedItem == 'About us'){
+                    Navigator.pushNamed(context, RouteNames.aboutScreen);
+                  }else if (state.selectedItem == 'Privacy Policy'){
+                    Navigator.pushNamed(context, RouteNames.privacyPolicyScreen);
+                  }else if (state.selectedItem == 'Terms & Condition'){
+                    Navigator.pushNamed(context, RouteNames.termsConditionPolicy);
+                  }else if (state.selectedItem == 'Jobs Policy'){
+                    Navigator.pushNamed(context, RouteNames.jobsPolicy);
+                  }else if (state.selectedItem == 'Referral Program Policy'){
+                    Navigator.pushNamed(context, RouteNames.referralProgramPolicy);
+                  }else if(state.selectedItem == 'Campaign Policy'){
+                    Navigator.pushNamed(context, RouteNames.campaignPolicy);
+                  }
+                },
+                child: Text(state.selectedItem, style: bodyMedium)),
             MouseRegion(
-              onEnter: (_) => context.read<HomeScreenFooterBloc>().add(OnHoverFooterMenuEvent(isHovered: true)),
-              onExit: (_) => context.read<HomeScreenFooterBloc>().add(OnHoverFooterMenuEvent(isHovered: false)),
+              onEnter:
+                  (_) => context.read<HomeScreenFooterBloc>().add(
+                    OnHoverFooterMenuEvent(isHovered: true),
+                  ),
+              onExit:
+                  (_) => context.read<HomeScreenFooterBloc>().add(
+                    OnHoverFooterMenuEvent(isHovered: false),
+                  ),
               child: GestureDetector(
                 child: Container(
                   decoration: BoxDecoration(
-                    color: state.isHovered ? AppColors.primaryColor : Colors.transparent,
+                    color:
+                        state.isHovered
+                            ? AppColors.primaryColor
+                            : Colors.transparent,
                     borderRadius: BorderRadius.circular(5),
                   ),
                   child: Text(
                     state.isTapped ? "^" : ">",
                     style: bodyMedium?.copyWith(
-                      color: state.isHovered ? AppColors.onPrimaryColor : AppColors.black,
+                      color:
+                          state.isHovered
+                              ? AppColors.onPrimaryColor
+                              : AppColors.black,
                     ),
                   ),
                 ),
@@ -52,21 +81,32 @@ class ShowPopupMenu extends StatelessWidget {
                       menuPadding: AppPadding.paddingAll,
                       items: List.generate(
                         state.menuItems.length,
-                            (index) => PopupMenuItem<String>(
-                          padding: EdgeInsets.only(bottom: index < state.menuItems.length - 1 ? 5 : 0),
-                          value: state.menuItems[index],
-                          child: GestureDetector(
-                            onTap: () {
-                              context.read<HomeScreenFooterBloc>().add(SelectedMenuItemEvent(selectedItem: state.menuItems[index]));
-                              Navigator.pop(context);
-                              context.read<HomeScreenFooterBloc>().add(CloseMenuEvent());
-                            },
-                            child: HoverableMenuItem(text: state.menuItems[index], bodyMedium: bodyMedium),
+                        (index) => PopupMenuItem<String>(
+                          padding: EdgeInsets.only(
+                            bottom: index < state.menuItems.length - 1 ? 5 : 0,
                           ),
+                          value: state.menuItems[index],
+                          child: HoverableMenuItem(
+                            text: state.menuItems[index],
+                            bodyMedium: bodyMedium,
+                          ),
+                          onTap: () {
+                            context.read<HomeScreenFooterBloc>().add(
+                              SelectedMenuItemEvent(
+                                selectedItem: state.menuItems[index],
+                              ),
+                            );
+                            context.read<HomeScreenFooterBloc>().add(
+                              CloseMenuEvent(),
+                            );
+
+                          },
                         ),
                       ),
                     ).then((value) {
-                      context.read<HomeScreenFooterBloc>().add(CloseMenuEvent());
+                      context.read<HomeScreenFooterBloc>().add(
+                        CloseMenuEvent(),
+                      );
                       if (value != null) debugPrint('Selected: $value');
                     });
                   }
