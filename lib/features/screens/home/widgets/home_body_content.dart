@@ -34,7 +34,7 @@ class HomeBodyContent extends StatelessWidget {
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       image: DecorationImage(image: AssetImage("assets/images/person.png"),
-                        onError: (_,_)=> Image.asset("assets/images/person.png"),
+                        onError: (_,__)=> Image.asset("assets/images/person.png"),
                       ),
                     ),
                   ),
