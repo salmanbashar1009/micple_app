@@ -11,7 +11,7 @@ class HomeScreenFooterState extends Equatable{
 
   HomeScreenFooterState copyWith({String? isHover, String? selectedItem, List<String>? menuItems, bool? isTapped, bool? isHovered}){
     return HomeScreenFooterState(
-      hoveredValue: isHover ?? this.hoveredValue,
+      hoveredValue: isHover ?? hoveredValue,
       selectedItem: selectedItem ?? this.selectedItem,
       menuItems: menuItems ?? this.menuItems,
       isTapped: isTapped ?? this.isTapped ,

@@ -16,7 +16,7 @@ class SignupScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    final bodyMedium = Theme.of(context).textTheme.bodyMedium?.copyWith(
+    Theme.of(context).textTheme.bodyMedium?.copyWith(
       fontSize: 15,
       fontWeight: FontWeight.w500,
       color: Colors.black

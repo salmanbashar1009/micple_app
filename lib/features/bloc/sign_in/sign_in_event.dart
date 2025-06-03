@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
-abstract class SigninEvent extends Equatable{
-  const SigninEvent();
+abstract class SignInEvent extends Equatable{
+  const SignInEvent();
 
   @override
   // TODO: implement props
@@ -10,4 +10,4 @@ abstract class SigninEvent extends Equatable{
   ];
 }
 
-class ToggleSigninButton extends SigninEvent{}
+class ToggleSignInButton extends SignInEvent{}

@@ -1,8 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:micple_app/core/constant/app_colors.dart';
 import 'package:micple_app/features/screens/signup/widgets/dash_border_text_field.dart';
-
 import 'dash_border_painter.dart';
 
 class UsernameContainer extends StatelessWidget {

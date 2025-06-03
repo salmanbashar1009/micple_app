@@ -1,11 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:micple_app/features/bloc/signup/text_form_bloc/text_form_bloc.dart';
 import 'package:micple_app/features/bloc/signup/text_form_bloc/text_form_event.dart';
 import 'package:micple_app/features/bloc/signup/text_form_bloc/text_form_state.dart';
 
-import '../widgets/custom_tooltip.dart';
 import '../widgets/dash_border_text_field.dart';
 
 class ResidenceInfoInputSection extends StatelessWidget {

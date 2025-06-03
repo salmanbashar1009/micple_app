@@ -1,11 +1,15 @@
+
+
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:micple_app/core/constant/app_colors.dart';
-import 'package:micple_app/core/route_config/route_name.dart';
-import 'package:micple_app/features/bloc/home/sign_in_section/signin_bloc.dart';
-import 'package:micple_app/features/common/common_widgets.dart';
-import '../../../bloc/home/sign_in_section/sign_event.dart';
-import '../../../bloc/home/sign_in_section/signin_state.dart';
+import 'package:micple_app/features/bloc/sign_in/sign_in_event.dart';
+
+import '../../../../core/constant/app_colors.dart';
+import '../../../../core/route_config/route_name.dart';
+import '../../../bloc/sign_in/sign_in_bloc.dart';
+import '../../../bloc/sign_in/sign_in_state.dart';
+import '../../../common/common_widgets.dart';
 
 class SignInSection extends StatelessWidget {
   const SignInSection({super.key});
@@ -14,7 +18,7 @@ class SignInSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final bodyLarge = Theme.of(context).textTheme.bodyLarge;
 
-    return BlocBuilder<SignInSectionBloc, SignInSectionState>(
+    return BlocBuilder<SignInBloc, SignInState>(
       builder: (context, state) {
         return Column(
           children: [
@@ -25,7 +29,7 @@ class SignInSection extends StatelessWidget {
                       ? CommonWidgets.primaryButton(
                         onTap: () {
                           debugPrint('Button tapped');
-                          context.read<SignInSectionBloc>().add(ToggleSigninButton());
+                          context.read<SignInBloc>().add(ToggleSignInButton());
                         },
                         title: "Sign in",
                         textColor: AppColors.white,

@@ -16,14 +16,14 @@ class DropdownWidget extends StatelessWidget {
   final bool? enabled;
 
   const DropdownWidget({
-    Key? key,
+    super.key,
     required this.hint,
     required this.items,
     required this.selectedValue,
     required this.fieldKey,
     this.onChanged,
     this.enabled,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

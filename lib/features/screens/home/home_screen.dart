@@ -14,7 +14,6 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     /// text style
     final bodyMedium = Theme.of(context).textTheme.bodyMedium;
-    final bodyLarge = Theme.of(context).textTheme.bodyLarge;
     return Scaffold(
       body: SafeArea(
         child: Column(

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:micple_app/core/app_strings/jobs_policy_strings.dart';
 import 'package:micple_app/core/constant/app_colors.dart';
-import 'package:micple_app/core/constant/app_padding.dart';
 
-import '../../../core/app_strings/about_strings.dart';
 import '../../common/common_widgets.dart';
 class JobsPolicyScreen extends StatelessWidget {
   const JobsPolicyScreen({super.key});

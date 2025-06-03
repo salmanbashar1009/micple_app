@@ -51,6 +51,7 @@ class UserInfoInputField extends StatelessWidget {
               child: Row(
                 children: [
                   Container(
+                    // ignore: deprecated_member_use
                     color: AppColors.borderColor.withOpacity(0.1),
                     height: 50,
                     width: 100,

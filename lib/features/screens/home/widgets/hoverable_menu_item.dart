@@ -11,7 +11,7 @@ class HoverableMenuItem extends StatelessWidget {
   final String text;
   final TextStyle? bodyMedium;
 
-  const HoverableMenuItem({required this.text, this.bodyMedium});
+  const HoverableMenuItem({super.key, required this.text, this.bodyMedium});
 
   @override
   Widget build(BuildContext context) {

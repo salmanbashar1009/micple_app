@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:micple_app/core/constant/app_colors.dart';
 
 class Footer extends StatelessWidget {
   const Footer({

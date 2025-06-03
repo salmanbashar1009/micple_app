@@ -11,7 +11,7 @@ class TextFieldFocusedEvent extends SignupEvent {
   final String fieldKey;
   final bool isFocused;
 
-  TextFieldFocusedEvent({required this.fieldKey, required this.isFocused});
+  const TextFieldFocusedEvent({required this.fieldKey, required this.isFocused});
 }
 
 class OnHoverToolTipEvent extends SignupEvent {

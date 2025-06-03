@@ -14,14 +14,14 @@ class WebPagesDataModel {
     if (json['data'] != null) {
       data = <Data>[];
       json['data'].forEach((v) {
-        data!.add(new Data.fromJson(v));
+        data!.add(Data.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['success'] = this.success;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['success'] = success;
     if (this.data != null) {
       data['data'] = this.data!.map((v) => v.toJson()).toList();
     }
@@ -66,14 +66,14 @@ class Data {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['_id'] = this.sId;
-    data['title'] = this.title;
-    data['route'] = this.route;
-    data['content'] = this.content;
-    data['type'] = this.type;
-    data['createdAt'] = this.createdAt;
-    data['__v'] = this.iV;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['_id'] = sId;
+    data['title'] = title;
+    data['route'] = route;
+    data['content'] = content;
+    data['type'] = type;
+    data['createdAt'] = createdAt;
+    data['__v'] = iV;
     return data;
   }
 }

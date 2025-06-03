@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:micple_app/core/constant/app_colors.dart';
-import 'package:micple_app/core/constant/app_padding.dart';
-import 'package:micple_app/features/common/common_widgets.dart';
 
 import '../widgets/show_popup_menu.dart';
 

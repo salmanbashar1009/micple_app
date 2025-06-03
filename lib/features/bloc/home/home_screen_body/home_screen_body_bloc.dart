@@ -6,7 +6,7 @@ import 'package:micple_app/features/bloc/home/home_screen_body/home_screen_body_
 class HomeScreenBodyBloc extends Bloc<HomeScreenBodyEvent,HomeScreenBodyState>{
    HomeScreenBodyBloc(): super (const HomeScreenBodyState(
        selectedIndex: 0,
-     tabs: const [
+     tabs: [
        'News', 'Web', 'Posts', 'Pictures', 'Audios', 'Videos',
        'Notes', 'Stores', 'Futures', 'Campaigns', 'Jobs',
        'Laboratories', 'Assistants', 'Investments',

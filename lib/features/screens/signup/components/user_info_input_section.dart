@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:micple_app/core/constant/app_colors.dart';
-import 'package:micple_app/features/bloc/signup/signup_bloc.dart';
-import 'package:micple_app/features/bloc/signup/signup_state.dart';
-import 'package:micple_app/features/common/common_widgets.dart';
 import 'package:micple_app/features/screens/signup/components/password_row.dart';
 import 'package:micple_app/features/screens/signup/components/username_and_nid_row.dart';
 import 'package:micple_app/features/screens/signup/widgets/terms_and_condition.dart';

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:micple_app/core/constant/app_colors.dart';
-import 'package:micple_app/core/constant/app_padding.dart';
 
-import '../../../core/app_strings/about_strings.dart';
 import '../../../core/app_strings/terms_condition_strings.dart';
 class TermsConditionScreen extends StatelessWidget {
   const TermsConditionScreen({super.key});
